@@ -34,19 +34,19 @@ function Form(props){
                         if(inputObject.type==="textarea"){
                             return (
                                 <li key={inputObject.formName}>
-                                    <label htmlFor={inputObject.formName}>{inputObject.label} : </label>
-                                    <textarea id={inputObject.formName} value={formData[inputObject.name]} name={inputObject.name} onChange={handleInputChange}></textarea>
+                                    <label htmlFor={inputObject.formName}>{inputObject.label} : </label><br/>
+                                    <textarea id={inputObject.formName} value={formData[inputObject.name]} name={inputObject.name} onChange={handleInputChange} cols="22"></textarea>
                                 </li>                            
                             )
                         }
                         return (
                             <li key={inputObject.formName}>
-                                <label htmlFor={inputObject.formName}>{inputObject.label} : </label>
+                                <label htmlFor={inputObject.formName}>{inputObject.label} : </label><br/>
                                 <input type={inputObject.type} id={inputObject.formName} value={formData[inputObject.name]} name={inputObject.name} onChange={handleInputChange}></input>
                             </li>                            
                         )}
                     )}
-                    <input type="submit" value="Valider"/>
+                    <br/><input type="submit" value="Valider"/>
                 </fieldset>
             </form>
         </>
