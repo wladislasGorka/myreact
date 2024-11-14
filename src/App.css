@@ -79,6 +79,9 @@ fieldset{
   flex-direction: column;
   align-items: center;
 }
+li{
+  list-style: none;
+}
 
 @media (max-width: 425px){
   .siteTitle{

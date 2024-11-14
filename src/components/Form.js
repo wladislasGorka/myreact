@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 function Form(props){
-    const [formData, setFormData] = useState({
-        nom:"",
-        prenom:"",
-        mail:"",
-        commentaire:"",
-    });
+    
+    
+    const emptyDatas = props.inputList.reduce((acc,cur) => ({...acc, [cur.name]:""}), {});
+    //console.log(emptyDatas);
+
+    const [formData, setFormData] = useState(emptyDatas);
 
     const handleInputChange = (e) => {
         const {name,value} = e.target;
@@ -22,12 +22,7 @@ function Form(props){
         // console.log(formData);
         props.onSubmit(formData);
 
-        setFormData({
-            nom:"",
-            prenom:"",
-            mail:"",
-            commentaire:"",
-        });
+        setFormData(emptyDatas);
     }
 
     return (
@@ -35,14 +30,22 @@ function Form(props){
             <form method="post" id="formContact" onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Formulaire de contact:</legend>
-                    <label htmlFor='formContactNom'>Nom:</label>
-                    <input type="text" id="formContactNom" value={formData.nom} name="nom" onChange={handleInputChange}></input>
-                    <label htmlFor='formContactPrenom'>Prenom:</label>
-                    <input type="text" id="formContactPrenom" value={formData.prenom} name="prenom" onChange={handleInputChange}></input>
-                    <label htmlFor='formContactMail'>Mail:</label>
-                    <input type="email" id="formContactMail" value={formData.mail} name="mail" onChange={handleInputChange}></input>
-                    <label htmlFor='formContactCommentaire'>Commentaire:</label>
-                    <textarea id="formContactCommentaire" value={formData.commentaire} name="commentaire" onChange={handleInputChange}></textarea>
+                    {props.inputList.map((inputObject) => {
+                        if(inputObject.type==="textarea"){
+                            return (
+                                <li key={inputObject.formName}>
+                                    <label htmlFor={inputObject.formName}>{inputObject.label} : </label>
+                                    <textarea id={inputObject.formName} value={formData[inputObject.name]} name={inputObject.name} onChange={handleInputChange}></textarea>
+                                </li>                            
+                            )
+                        }
+                        return (
+                            <li key={inputObject.formName}>
+                                <label htmlFor={inputObject.formName}>{inputObject.label} : </label>
+                                <input type={inputObject.type} id={inputObject.formName} value={formData[inputObject.name]} name={inputObject.name} onChange={handleInputChange}></input>
+                            </li>                            
+                        )}
+                    )}
                     <input type="submit" value="Valider"/>
                 </fieldset>
             </form>
