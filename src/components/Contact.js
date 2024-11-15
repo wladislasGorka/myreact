@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Form from './Form';
+import Header from './Header';
 
 function Contact(){
     let inputList = [
@@ -18,9 +19,7 @@ function Contact(){
 
     return (
         <>
-            <header>
-                <h1>Contact</h1>
-            </header>
+            <Header name="Contact"/>
             <section>                
                 <Form onSubmit={handleFormSubmit} inputList={inputList}/>
                 {datas.nom && (

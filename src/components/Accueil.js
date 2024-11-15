@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from './Header';
 
 function Accueil(){
     return (
-        <header>
-            <h1>Acceuil</h1>
-        </header>
+        <>
+            <Header name="Acceuil"/>
+        </>
     );
 }
 
