@@ -6,9 +6,9 @@ function CardProductDetail(props){
     return (
         <article>
             <h1>Hello</h1>
-            <h2>{product.name}</h2>
+            {/* <h2>{product.name}</h2>
             <p>{product.description}</p>
-            <p>{product.price}</p>
+            <p>{product.price}</p> */}
         </article>
     )
 }
