@@ -6,6 +6,7 @@ function Contact(){
     let inputList = [
         {formName:"formContactNom",name:"nom",type:"text", label:"Nom"},
         {formName:"formContactPrenom",name:"prenom",type:"text", label:"Prenom"},
+        {formName:"formContactAlias",name:"alias",type:"text", label:"Alias"},
         {formName:"formContactMail",name:"mail",type:"email", label:"Mail"},
         {formName:"formContactCommentaire",name:"commentaire",type:"textarea", label:"Commentaire"}
     ];

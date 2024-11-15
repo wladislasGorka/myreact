@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 import Accueil from './components/Accueil';
 import About from './components/About';
 import Contact from './components/Contact';
+import CardProductDetail from './components/CardProductDetail';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Accueil/>} />
         <Route path="/About" element={<About/>} />
         <Route path="/Contact" element={<Contact/>} />
+        
       </Routes>
     </Router>
   );
